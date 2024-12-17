@@ -30,6 +30,11 @@ public class RegisterActivity extends AppCompatActivity {
         btnRegister.setOnClickListener(v -> {
             String username = etUsername.getText().toString();
             String password = etPassword.getText().toString();
+
+            if (username.isEmpty() || password.isEmpty()) {
+                Toast.makeText(RegisterActivity.this, "Please enter both username and password", Toast.LENGTH_SHORT).show();
+                return;
+            }
             if (dbHelper.registerUser(username, password)) {
                 Toast.makeText(this, "Registration successful", Toast.LENGTH_SHORT).show();
                 startActivity(new Intent(this, LoginActivity.class));

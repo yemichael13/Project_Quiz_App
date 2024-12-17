@@ -1,80 +1,72 @@
 package com.example.project_quiz_app;
 
-
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
-import android.widget.Toast;
+import android.widget.RadioButton;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
-import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
 
 public class QuizActivity extends AppCompatActivity {
-    private RecyclerView recyclerView;
-    private QuestionAdapter adapter;
-    private List<Question> questions;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_quiz);
 
-        recyclerView = findViewById(R.id.recyclerView);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
-
-        // Create a list of 20 questions
-        questions = new ArrayList<>();
-        questions.add(new Question("What is the capital of France?", "Paris", "Berlin", "Madrid", "Rome", 0));
-        questions.add(new Question("Who wrote 'Hamlet'?", "Charles Dickens", "William Shakespeare", "Mark Twain", "Jane Austen", 1));
-        questions.add(new Question("What is the largest planet in our solar system?", "Earth", "Jupiter", "Saturn", "Mars", 1));
-        questions.add(new Question("What is the chemical symbol for water?", "O2", "H2O", "CO2", "HO", 1));
-        questions.add(new Question("Which animal is known as the King of the Jungle?", "Tiger", "Elephant", "Lion", "Leopard", 2));
-        questions.add(new Question("How many continents are there?", "5", "6", "7", "8", 2));
-        questions.add(new Question("Which planet is known as the Red Planet?", "Venus", "Mars", "Saturn", "Mercury", 1));
-        questions.add(new Question("What is the square root of 64?", "6", "7", "8", "9", 2));
-        questions.add(new Question("Who painted the Mona Lisa?", "Leonardo da Vinci", "Vincent van Gogh", "Pablo Picasso", "Claude Monet", 0));
-        questions.add(new Question("What is the largest ocean on Earth?", "Atlantic Ocean", "Indian Ocean", "Pacific Ocean", "Arctic Ocean", 2));
-        questions.add(new Question("Which country is known for the Great Wall?", "India", "China", "Japan", "Russia", 1));
-        questions.add(new Question("What is the smallest unit of life?", "Atom", "Molecule", "Cell", "Organ", 2));
-        questions.add(new Question("What does DNA stand for?", "Deoxyribonucleic Acid", "Dinucleic Acid", "Dioxin Acid", "None of the above", 0));
-        questions.add(new Question("What is the fastest land animal?", "Cheetah", "Lion", "Horse", "Gazelle", 0));
-        questions.add(new Question("How many colors are there in a rainbow?", "5", "6", "7", "8", 2));
-        questions.add(new Question("Which gas do plants absorb?", "Carbon Dioxide", "Oxygen", "Nitrogen", "Hydrogen", 0));
-        questions.add(new Question("What is the capital city of Japan?", "Tokyo", "Osaka", "Kyoto", "Hiroshima", 0));
-        questions.add(new Question("What is the hardest natural substance?", "Gold", "Iron", "Diamond", "Silver", 2));
-        questions.add(new Question("What is the boiling point of water?", "50°C", "75°C", "100°C", "150°C", 2));
-        questions.add(new Question("What is the national currency of the United States?", "Euro", "Dollar", "Pound", "Yen", 1));
-
-        // Set the adapter with the list of questions
-        adapter = new QuestionAdapter(questions);
-        recyclerView.setAdapter(adapter);
-
-        // Submit button
         Button btnSubmit = findViewById(R.id.btnSubmit);
-        btnSubmit.setOnClickListener(v -> {
-            int score = calculateScore();
-            Intent intent = new Intent(QuizActivity.this, AnswersActivity.class);
-            intent.putExtra("questions", (Serializable) questions); // Pass questions to AnswersActivity
-            intent.putExtra("score", score); // Pass score to AnswersActivity
+        btnSubmit.setOnClickListener(view -> {
+            // Example: Calculate Score
+            int score = 0;
+            RadioButton q1Answer = findViewById(R.id.radio1_q1);
+            RadioButton q2Answer = findViewById(R.id.radio1_q2);
+            RadioButton q3Answer = findViewById(R.id.radio3_q3);
+            RadioButton q4Answer = findViewById(R.id.radio4_q4);
+            RadioButton q5Answer = findViewById(R.id.radio2_q5);
+            RadioButton q6Answer = findViewById(R.id.radio4_q6);
+            RadioButton q7Answer = findViewById(R.id.radio2_q7);
+            RadioButton q8Answer = findViewById(R.id.radio2_q8);
+            RadioButton q9Answer = findViewById(R.id.radio3_q9);
+            RadioButton q10Answer = findViewById(R.id.radio3_q10);
+            RadioButton q11Answer = findViewById(R.id.radio1_q11);
+            RadioButton q12Answer = findViewById(R.id.radio2_q12);
+            RadioButton q13Answer = findViewById(R.id.radio3_q13);
+            RadioButton q14Answer = findViewById(R.id.radio2_q14);
+            RadioButton q15Answer = findViewById(R.id.radio3_q15);
+            RadioButton q16Answer = findViewById(R.id.radio2_q16);
+            RadioButton q17Answer = findViewById(R.id.radio1_q17);
+            RadioButton q18Answer = findViewById(R.id.radio4_q18);
+            RadioButton q19Answer = findViewById(R.id.radio3_q19);
+            RadioButton q20Answer = findViewById(R.id.radio1_q20);
+
+
+
+            if (q1Answer.isChecked()) score++;
+            if (q2Answer.isChecked()) score++;
+            if (q3Answer.isChecked()) score++;
+            if (q4Answer.isChecked()) score++;
+            if (q5Answer.isChecked()) score++;
+            if (q6Answer.isChecked()) score++;
+            if (q7Answer.isChecked()) score++;
+            if (q8Answer.isChecked()) score++;
+            if (q9Answer.isChecked()) score++;
+            if (q10Answer.isChecked()) score++;
+            if (q11Answer.isChecked()) score++;
+            if (q12Answer.isChecked()) score++;
+            if (q13Answer.isChecked()) score++;
+            if (q14Answer.isChecked()) score++;
+            if (q15Answer.isChecked()) score++;
+            if (q16Answer.isChecked()) score++;
+            if (q17Answer.isChecked()) score++;
+            if (q18Answer.isChecked()) score++;
+            if (q19Answer.isChecked()) score++;
+            if (q20Answer.isChecked()) score++;
+
+            // Pass score to ResultActivity
+            Intent intent = new Intent(QuizActivity.this, ResultActivity.class);
+            intent.putExtra("score", score);
             startActivity(intent);
         });
     }
-
-    // Calculate the score based on selected answers
-    private int calculateScore() {
-        int score = 0;
-        for (Question question : questions) {
-            if (question.getSelectedAnswer() == question.getCorrectAnswer()) {
-                score++;
-            }
-        }
-        Toast.makeText(this, "Score: " + score, Toast.LENGTH_SHORT).show();
-        return score;
-    }
 }
+
