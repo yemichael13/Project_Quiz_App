@@ -3,70 +3,63 @@ package com.example.project_quiz_app;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
-import android.widget.RadioButton;
+import android.widget.ListView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.util.ArrayList;
+
 public class QuizActivity extends AppCompatActivity {
+    private ListView listViewQuestions;
+    private Button btnSubmit;
+    private ArrayList<Question> questionList;
+    private QuestionAdapter questionAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_quiz);
 
-        Button btnSubmit = findViewById(R.id.btnSubmit);
-        btnSubmit.setOnClickListener(view -> {
-            // Example: Calculate Score
-            int score = 0;
-            RadioButton q1Answer = findViewById(R.id.radio1_q1);
-            RadioButton q2Answer = findViewById(R.id.radio1_q2);
-            RadioButton q3Answer = findViewById(R.id.radio3_q3);
-            RadioButton q4Answer = findViewById(R.id.radio4_q4);
-            RadioButton q5Answer = findViewById(R.id.radio2_q5);
-            RadioButton q6Answer = findViewById(R.id.radio4_q6);
-            RadioButton q7Answer = findViewById(R.id.radio2_q7);
-            RadioButton q8Answer = findViewById(R.id.radio2_q8);
-            RadioButton q9Answer = findViewById(R.id.radio3_q9);
-            RadioButton q10Answer = findViewById(R.id.radio3_q10);
-            RadioButton q11Answer = findViewById(R.id.radio1_q11);
-            RadioButton q12Answer = findViewById(R.id.radio2_q12);
-            RadioButton q13Answer = findViewById(R.id.radio3_q13);
-            RadioButton q14Answer = findViewById(R.id.radio2_q14);
-            RadioButton q15Answer = findViewById(R.id.radio3_q15);
-            RadioButton q16Answer = findViewById(R.id.radio2_q16);
-            RadioButton q17Answer = findViewById(R.id.radio1_q17);
-            RadioButton q18Answer = findViewById(R.id.radio4_q18);
-            RadioButton q19Answer = findViewById(R.id.radio3_q19);
-            RadioButton q20Answer = findViewById(R.id.radio1_q20);
+        listViewQuestions = findViewById(R.id.listViewQuestions);
+        btnSubmit = findViewById(R.id.btnSubmit);
 
+        // Initialize question list with 20 questions
+        questionList = new ArrayList<>();
+        populateQuestions();
 
+        // Set up adapter for the ListView
+        questionAdapter = new QuestionAdapter(this, questionList);
+        listViewQuestions.setAdapter(questionAdapter);
 
-            if (q1Answer.isChecked()) score++;
-            if (q2Answer.isChecked()) score++;
-            if (q3Answer.isChecked()) score++;
-            if (q4Answer.isChecked()) score++;
-            if (q5Answer.isChecked()) score++;
-            if (q6Answer.isChecked()) score++;
-            if (q7Answer.isChecked()) score++;
-            if (q8Answer.isChecked()) score++;
-            if (q9Answer.isChecked()) score++;
-            if (q10Answer.isChecked()) score++;
-            if (q11Answer.isChecked()) score++;
-            if (q12Answer.isChecked()) score++;
-            if (q13Answer.isChecked()) score++;
-            if (q14Answer.isChecked()) score++;
-            if (q15Answer.isChecked()) score++;
-            if (q16Answer.isChecked()) score++;
-            if (q17Answer.isChecked()) score++;
-            if (q18Answer.isChecked()) score++;
-            if (q19Answer.isChecked()) score++;
-            if (q20Answer.isChecked()) score++;
-
-            // Pass score to ResultActivity
+        // Handle Submit button click
+        btnSubmit.setOnClickListener(v -> {
             Intent intent = new Intent(QuizActivity.this, ResultActivity.class);
-            intent.putExtra("score", score);
+            intent.putParcelableArrayListExtra("questions", questionList);
             startActivity(intent);
+            finish();
         });
     }
-}
 
+    private void populateQuestions() {
+        questionList.add(new Question("What is the capital of France?", "Berlin", "Madrid", "Paris", "Rome", "Paris"));
+        questionList.add(new Question("Which planet is known as the Red Planet?", "Earth", "Mars", "Jupiter", "Venus", "Mars"));
+        questionList.add(new Question("Who wrote 'Hamlet'?", "Charles Dickens", "William Shakespeare", "Mark Twain", "Jane Austen", "William Shakespeare"));
+        questionList.add(new Question("What is the boiling point of water?", "90°C", "100°C", "110°C", "120°C", "100°C"));
+        questionList.add(new Question("What is the largest ocean on Earth?", "Atlantic Ocean", "Indian Ocean", "Arctic Ocean", "Pacific Ocean", "Pacific Ocean"));
+        questionList.add(new Question("Which element has the chemical symbol 'O'?", "Oxygen", "Osmium", "Gold", "Hydrogen", "Oxygen"));
+        questionList.add(new Question("Who painted the Mona Lisa?", "Vincent van Gogh", "Pablo Picasso", "Leonardo da Vinci", "Claude Monet", "Leonardo da Vinci"));
+        questionList.add(new Question("Which country is known as the Land of the Rising Sun?", "China", "India", "Japan", "Thailand", "Japan"));
+        questionList.add(new Question("What is the largest mammal?", "Elephant", "Blue Whale", "Giraffe", "Hippopotamus", "Blue Whale"));
+        questionList.add(new Question("Which gas do plants absorb during photosynthesis?", "Oxygen", "Nitrogen", "Carbon Dioxide", "Hydrogen", "Carbon Dioxide"));
+        questionList.add(new Question("What is the smallest prime number?", "0", "1", "2", "3", "2"));
+        questionList.add(new Question("Which organ is responsible for pumping blood?", "Lungs", "Liver", "Brain", "Heart", "Heart"));
+        questionList.add(new Question("Who discovered gravity?", "Albert Einstein", "Isaac Newton", "Galileo Galilei", "Nikola Tesla", "Isaac Newton"));
+        questionList.add(new Question("What is the chemical symbol for water?", "O", "H", "H2O", "HO", "H2O"));
+        questionList.add(new Question("What is the tallest mountain in the world?", "K2", "Mount Everest", "Kangchenjunga", "Makalu", "Mount Everest"));
+        questionList.add(new Question("Which planet is closest to the sun?", "Earth", "Mars", "Mercury", "Venus", "Mercury"));
+        questionList.add(new Question("What is the currency of Japan?", "Yuan", "Dollar", "Yen", "Won", "Yen"));
+        questionList.add(new Question("Who is known as the Father of Computers?", "Charles Babbage", "Alan Turing", "John von Neumann", "Ada Lovelace", "Charles Babbage"));
+        questionList.add(new Question("Which continent is known as the Dark Continent?", "Asia", "Africa", "Australia", "Europe", "Africa"));
+        questionList.add(new Question("What is the hardest natural substance on Earth?", "Gold", "Iron", "Diamond", "Silver", "Diamond"));
+    }
+}
