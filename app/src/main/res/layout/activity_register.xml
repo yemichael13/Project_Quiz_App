@@ -14,7 +14,8 @@
         android:textSize="80sp"
         android:layout_centerHorizontal="true"
         android:fontFamily="sans-serif"
-        android:textStyle="bold"/>
+        android:textStyle="bold"
+        android:textColor="@color/black"/>
 
     <EditText
         android:id="@+id/etUsername"
@@ -23,7 +24,8 @@
         android:hint="Username"
         android:backgroundTint="@color/blue"
         android:layout_margin="5dp"
-        android:textSize="24sp"/>
+        android:textSize="24sp"
+        android:textColor="@color/black"/>
 
     <EditText
         android:id="@+id/etPassword"
@@ -33,7 +35,8 @@
         android:inputType="textPassword"
         android:backgroundTint="@color/blue"
         android:layout_margin="5dp"
-        android:textSize="24sp"/>
+        android:textSize="24sp"
+        android:textColor="@color/black"/>
 
     <Button
         android:id="@+id/btnRegister"
@@ -43,7 +46,8 @@
         android:textSize="25sp"
         android:backgroundTint="@color/blue"
         android:paddingHorizontal="40dp"
-        android:layout_margin="5dp"/>
+        android:layout_margin="5dp"
+        android:textColor="@color/white"/>
 
     <TextView
         android:id="@+id/tvLogin"

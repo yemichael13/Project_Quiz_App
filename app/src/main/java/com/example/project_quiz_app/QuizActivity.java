@@ -49,7 +49,7 @@ public class QuizActivity extends AppCompatActivity {
         questionList.add(new Question("Which element has the chemical symbol 'O'?", "Oxygen", "Osmium", "Gold", "Hydrogen", "Oxygen"));
         questionList.add(new Question("Who painted the Mona Lisa?", "Vincent van Gogh", "Pablo Picasso", "Leonardo da Vinci", "Claude Monet", "Leonardo da Vinci"));
         questionList.add(new Question("Which country is known as the Land of the Rising Sun?", "China", "India", "Japan", "Thailand", "Japan"));
-        questionList.add(new Question("What is the largest mammal?", "Elephant", "Blue Whale", "Giraffe", "Hippopotamus", "Blue Whale"));
+        questionList.add(new Question("What is the largest mammal?", "Elephant", "Blue Whale", "Giraffe", "Hippopotamus", "Elephant"));
         questionList.add(new Question("Which gas do plants absorb during photosynthesis?", "Oxygen", "Nitrogen", "Carbon Dioxide", "Hydrogen", "Carbon Dioxide"));
         questionList.add(new Question("What is the smallest prime number?", "0", "1", "2", "3", "2"));
         questionList.add(new Question("Which organ is responsible for pumping blood?", "Lungs", "Liver", "Brain", "Heart", "Heart"));

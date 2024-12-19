@@ -11,7 +11,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Question"
-        android:textSize="18sp" />
+        android:textSize="18sp"
+        android:textColor="@color/black"/>
 
     <RadioGroup
         android:id="@+id/rgOptions"
@@ -24,24 +25,28 @@
             android:id="@+id/rbOption1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Option 1" />
+            android:text="Option 1"
+            android:textColor="@color/black"/>
 
         <RadioButton
             android:id="@+id/rbOption2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Option 2" />
+            android:text="Option 2"
+            android:textColor="@color/black"/>
 
         <RadioButton
             android:id="@+id/rbOption3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Option 3" />
+            android:text="Option 3"
+            android:textColor="@color/black"/>
 
         <RadioButton
             android:id="@+id/rbOption4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Option 4" />
+            android:text="Option 4"
+            android:textColor="@color/black"/>
     </RadioGroup>
 </LinearLayout>

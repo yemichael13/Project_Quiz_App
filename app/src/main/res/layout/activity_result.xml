@@ -16,7 +16,8 @@
         android:textSize="40sp"
         android:textColor="@color/blue"
         android:layout_marginBottom="5dp"
-        android:textStyle="bold"/>
+        android:textStyle="bold"
+        />
 
     <TextView
         android:id="@+id/tvScore"
@@ -26,7 +27,8 @@
         android:textSize="24sp"
         android:textStyle="bold"
         android:gravity="center"
-        android:layout_marginBottom="32dp" />
+        android:layout_marginBottom="32dp"
+        android:textColor="@color/black"/>
 
     <Button
         android:id="@+id/btnViewAnswers"
@@ -36,7 +38,8 @@
         android:layout_marginBottom="16dp"
         android:textSize="18sp"
         android:backgroundTint="@color/blue"
-        android:paddingHorizontal="40dp"/>
+        android:paddingHorizontal="40dp"
+        android:textColor="@color/white"/>
 
     <Button
         android:id="@+id/btnRetry"
@@ -45,6 +48,7 @@
         android:text="Retry Quiz"
         android:paddingHorizontal="40dp"
         android:textSize="18sp"
-        android:backgroundTint="@color/blue"/>
+        android:backgroundTint="@color/blue"
+        android:textColor="@color/white"/>
 
 </LinearLayout>

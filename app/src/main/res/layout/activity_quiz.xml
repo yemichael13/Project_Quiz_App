@@ -22,6 +22,6 @@
         android:text="Submit"
         android:layout_marginTop="16dp"
         android:backgroundTint="@color/blue"
-        />
+        android:textColor="@color/white"/>
 
 </LinearLayout>

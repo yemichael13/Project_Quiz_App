@@ -21,14 +21,16 @@
         android:id="@+id/tvWelcome"
         android:text=""
         android:textSize="30sp"
-        android:layout_marginBottom="5dp"/>
+        android:layout_marginBottom="5dp"
+        android:textColor="@color/black"/>
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Try your best for the next 20 questions"
         android:layout_marginVertical="5dp"
         android:textSize="20sp"
-        android:textStyle="bold"/>
+        android:textStyle="bold"
+        android:textColor="@color/black"/>
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="300dp"
@@ -46,7 +48,8 @@
         android:textStyle="bold"
         android:paddingHorizontal="40dp"
         android:layout_margin="5dp"
-        android:layout_gravity="center_horizontal"/>
+        android:layout_gravity="center_horizontal"
+        android:textColor="@color/white"/>
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -55,5 +58,6 @@
         android:layout_gravity="center_horizontal"
         android:textSize="16sp"
         android:textStyle="bold"
-        android:backgroundTint="@color/red" />
+        android:backgroundTint="@color/red"
+        android:textColor="@color/white"/>
 </LinearLayout>
